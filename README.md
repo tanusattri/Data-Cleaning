@@ -6,6 +6,7 @@
 - [Conclusion](#conclusion)
 
 ### Introduction
+This file will define and justify of each and every process in data analytics. 
 
 ### Code
 
