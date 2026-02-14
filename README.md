@@ -5,6 +5,7 @@
 - [Handling Missing Data](#handling-missing-data)
 - [Filling in Missing Data](#filling-in-missing-data)
 - [Removing Duplicates](#removing-duplicates)
+- [Transforming Data Using a Function or Mapping](#transforming-data-using-a-function-or-mapping)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -73,5 +74,22 @@ data = pd.DataFrame({'food': ['bacon', 'pulled pork', 'bacon',
 data
 ```
 
+### Transforming Data Using a Function or Mapping
+```Python
+meat_to_animal = {
+    'bacon': 'pig',
+    'pulled pork': 'pig',
+    'pastrami': 'cow',
+    'corned beef': 'cow',
+    'honey ham': 'pig',
+    'nova lox': 'salmon'
+}
+lowercased = data['food'].str.lower()
+lowercased
+data['animal'] = lowercased.map(meat_to_animal)
+data
+data['food'].map(lambda x: meat_to_animal[x.lower()])
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates. 
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping.
