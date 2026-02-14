@@ -4,6 +4,7 @@
 - [Introduction](#introduction)
 - [Handling Missing Data](#handling-missing-data)
 - [Filling in Missing Data](#filling-in-missing-data)
+- [Removing Duplicates](#removing-duplicates)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -55,5 +56,22 @@ data = pd.Series([1., NA, 3.5, NA, 7])
 data.fillna(data.mean())
 ```
 
+### Removing Duplicates
+```Python
+data = pd.DataFrame({'k1': ['one', 'two'] * 3 + ['two'],
+                    'k2': [1,1,2,3,3,4,4]})
+data
+data.duplicated()
+data.drop_duplicates()
+data['v1'] = range(7)
+data.drop_duplicates(['k1'])
+data.drop_duplicates(['k1', 'k2'], keep='last')
+data = pd.DataFrame({'food': ['bacon', 'pulled pork', 'bacon',
+                             'Pastrami', 'corned beef', 'Bacon',
+                            'pastrami', 'honey ham', 'nova lox'],
+                    'ounces': [4, 3, 12, 6, 7.5, 8, 3, 5, 6]})
+data
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data.
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates. 
