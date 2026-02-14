@@ -3,6 +3,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Handling Missing Data](#handling-missing-data)
+- [Filling in Missing Data](#filling-in-missing-data)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -38,5 +39,21 @@ df.dropna()
 df.dropna(thresh=2)
 ```
 
+### Filling in Missing Data
+```Python
+df.fillna(0)
+df.fillna({1:0.5, 2: 0})
+_ = df.fillna(0, inplace=True)
+df
+df = pd.DataFrame(np.random.randn(6,3))
+df.iloc[2:, 1] = NA
+df.iloc[4:, 2] = NA
+df
+df.fillna(method='ffill')
+df.fillna(method='ffill', limit=2)
+data = pd.Series([1., NA, 3.5, NA, 7])
+data.fillna(data.mean())
+```
+
 ### Conclusion
-This file consist of Handling Missing Data. 
+This file consist of Handling Missing Data, Filling in Missing Data.
