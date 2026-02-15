@@ -7,10 +7,11 @@
 - [Removing Duplicates](#removing-duplicates)
 - [Transforming Data Using a Function or Mapping](#transforming-data-using-a-function-or-mapping)
 - [Replacing Values](#replacing-values)
+- [Renaming Axis Indexes](#renaming-axis-indexes)
 - [Conclusion](#conclusion)
 
 ### Introduction
-This file will define and justify of each and every process in data analytics. 
+This file will define and justify of each and every process in data analytics: data cleaning. 
 
 ### Handling Missing Data 
 ```Python
@@ -87,10 +88,11 @@ meat_to_animal = {
 }
 lowercased = data['food'].str.lower()
 lowercased
-data['animal'] = lowercased.map(meat_to_animal)
+data['animal'] = lowercased.map(meat_to_animal)data.rename(index=str.title, columns=str.upper)
 data
 data['food'].map(lambda x: meat_to_animal[x.lower()])
 ```
+
 ### Replacing Values
 ```Python
 import pandas as pd
@@ -102,5 +104,20 @@ data.replace([-999, -1000], np.nan)
 data.replace([-999, -1000], [np.nan, 0])
 ```
 
+### Renaming Axis Indexes
+```Python
+data = pd.DataFrame(np.arange(12).reshape((3,4)),
+                   index = ['Ohio', 'Colorado', 'New York'],
+                   columns = ['one', 'two', 'three', 'four'])
+print(data)
+transform = lambda x: x[:4].upper()
+data.index.map(transform)
+data.rename(index=str.title, columns=str.upper)
+data.rename(index={'OHIO':"INDIANA"},
+           columns = {'three':'peekaboo'})
+data.rename(index={'OHIO': 'INDIANA'}, inplace=True)
+data
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes.
