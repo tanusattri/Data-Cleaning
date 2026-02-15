@@ -6,6 +6,7 @@
 - [Filling in Missing Data](#filling-in-missing-data)
 - [Removing Duplicates](#removing-duplicates)
 - [Transforming Data Using a Function or Mapping](#transforming-data-using-a-function-or-mapping)
+- [Replacing Values](#replacing-values)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -90,6 +91,16 @@ data['animal'] = lowercased.map(meat_to_animal)
 data
 data['food'].map(lambda x: meat_to_animal[x.lower()])
 ```
+### Replacing Values
+```Python
+import pandas as pd
+data = pd.Series([1., -999., 2., -999., 3.])
+data
+import numpy as np
+data.replace(-999, np.nan)
+data.replace([-999, -1000], np.nan)
+data.replace([-999, -1000], [np.nan, 0])
+```
 
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping.
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values
