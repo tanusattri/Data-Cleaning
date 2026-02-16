@@ -8,6 +8,7 @@
 - [Transforming Data Using a Function or Mapping](#transforming-data-using-a-function-or-mapping)
 - [Replacing Values](#replacing-values)
 - [Renaming Axis Indexes](#renaming-axis-indexes)
+- [Discretization and Binning](#discretization-and-binning)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -119,5 +120,28 @@ data.rename(index={'OHIO': 'INDIANA'}, inplace=True)
 data
 ```
 
+### Discretization and Binning
+```Python
+import pandas as pd
+import numpy as np
+ages = [20, 22, 25, 27, 21, 23, 37, 31, 61, 45, 41, 32]
+bins = [18, 25, 35, 60, 100]
+cats = pd.cut(ages, bins)
+cats
+cats.codes
+cats.categories
+pd.value_counts(cats)
+pd.cut(ages, [18, 26, 36, 61, 100], right=False)
+group_names = ['Youth', 'YoungAdult', 'MiddleAges', 'Senior']
+pd.cut(ages, bins, labels=group_names)
+data = np.random.rand(20)
+pd.cut(data, 4, precision=2)
+data = np.random.randn(1000)
+cats = pd.qcut(data, 4)
+cats
+pd.value_counts(cats)
+pd.qcut(data, [0, 0.1, 0.5, 0.9, 1.])
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes.
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning. 
