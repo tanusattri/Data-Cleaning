@@ -9,6 +9,7 @@
 - [Replacing Values](#replacing-values)
 - [Renaming Axis Indexes](#renaming-axis-indexes)
 - [Discretization and Binning](#discretization-and-binning)
+- [Detecting and Filtering Outliers](#detecting-and-filtering-outliers)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -142,6 +143,17 @@ cats
 pd.value_counts(cats)
 pd.qcut(data, [0, 0.1, 0.5, 0.9, 1.])
 ```
+### Detecting and Filtering Outliers
+```Python
+data = pd.DataFrame(np.random.randn(1000, 4))
+data.describe()
+col = data[2]
+col[np.abs(col) > 3]
+data[(np.abs(data) > 3).any(axis=1)]
+data[np.abs(data) > 3] = np.sign(data) * 3 
+data.describe()
+np.sign(data).head()
+```
 
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning. 
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers. 
