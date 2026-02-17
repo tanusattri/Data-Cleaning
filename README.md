@@ -10,6 +10,7 @@
 - [Renaming Axis Indexes](#renaming-axis-indexes)
 - [Discretization and Binning](#discretization-and-binning)
 - [Detecting and Filtering Outliers](#detecting-and-filtering-outliers)
+- [Permutation and Random Sampling](#permutation-and-random-sampling)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -155,5 +156,20 @@ data.describe()
 np.sign(data).head()
 ```
 
+### Permuation and Random Sampling 
+```Python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame(np.arange(5*4).reshape((5,4)))
+sampler = np.random.permutation(5)
+sampler
+print(df)
+df.take(sampler)
+df.sample(n=3)
+choices = pd.Series([5, 7, -1, 6, 4])
+draws = choices.sample(n=10, replace=True)
+draws
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers. 
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling. 
