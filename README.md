@@ -11,6 +11,8 @@
 - [Discretization and Binning](#discretization-and-binning)
 - [Detecting and Filtering Outliers](#detecting-and-filtering-outliers)
 - [Permutation and Random Sampling](#permutation-and-random-sampling)
+- [Dummy Variables](#dummy-variables)
+- [String Manipulation](#string-manipulation)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -171,5 +173,37 @@ draws = choices.sample(n=10, replace=True)
 draws
 ```
 
+### Dummy Variables
+```Python
+df = pd.DataFrame({'key': ['b', 'b', 'a', 'c', 'a', 'b'],
+                  'data1': range(6)})
+pd.get_dummies(df['key'])
+dummies = pd.get_dummies(df['key'], prefix='key')
+df_with_dummy = df[['data1']].join(dummies)
+df_with_dummy
+np.random.seed(12345)
+values = np.random.rand(10)
+values
+bins = [0, 0.2, 0.4, 0.6, 0.8, 1]
+pd.get_dummies(pd.cut(values, bins))
+```
+
+### String Manipulation
+```Python
+val = 'a,b,   guido'
+val.split(',')
+pieces = [x.strip() for x in val.split(',')]
+pieces
+first, second, third = pieces
+first + '::' + second + '::' + third
+'::'.join(pieces)
+'guido' in val
+val.index(',')
+val.find(':')
+val.count(',')
+val.replace(',', '::')
+val.replace(',', '')
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling. 
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation.
