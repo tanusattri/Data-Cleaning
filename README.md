@@ -13,6 +13,7 @@
 - [Permutation and Random Sampling](#permutation-and-random-sampling)
 - [Dummy Variables](#dummy-variables)
 - [String Manipulation](#string-manipulation)
+- [Regular Expression](#regular-expression)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -205,5 +206,34 @@ val.replace(',', '::')
 val.replace(',', '')
 ```
 
+### Regular Expression
+``` Python
+import re
+text = "foo bar\t baz   \tqux"
+re.split('\s+', text)
+regex = re.compile('\s+')
+regex.split(text)
+regex.findall(text)
+text = """Dave dave@google.com
+Steve steve@gmail.com
+Rob rob@gmail.com
+Ryan ryan@yahoo.com
+"""
+pattern = r'[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}'
+regex = re.compile(pattern, flags=re.IGNORECASE)
+regex.findall(text)
+m = regex.search(text)
+m
+text[m.start():m.end()]
+print(regex.match(text))
+print(regex.sub('REDACTED', text))
+pattern = r'([A-Z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z]{2,4})'
+regex = re.compile(pattern, flags=re.IGNORECASE)
+regex.findall(text)
+m = regex.match('wes@bright.net')
+m.groups()
+print(regex.sub(r'Username: \1, Domain: \2, Suffix: \3', text))
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation.
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation, Regular Expressions. 
