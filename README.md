@@ -14,6 +14,7 @@
 - [Dummy Variables](#dummy-variables)
 - [String Manipulation](#string-manipulation)
 - [Regular Expression](#regular-expression)
+- [Vectorized String Functions In Pandas](#vectorized-string-functions-in-pandas)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -159,7 +160,7 @@ data.describe()
 np.sign(data).head()
 ```
 
-### Permuation and Random Sampling 
+### Permutation and Random Sampling 
 ```Python
 import pandas as pd
 import numpy as np
@@ -235,5 +236,23 @@ m.groups()
 print(regex.sub(r'Username: \1, Domain: \2, Suffix: \3', text))
 ```
 
+### Vectorized String Functions In Pandas
+```Python
+data = {'Dave': 'dave@google.com', 'Steve': 'steve@gmail.com',
+        'Rob': 'rob@gmail.com', 'Wes': np.nan}
+data = pd.Series(data)
+data
+data = {'Dave': 'dave@google.com', 'Steve': 'steve@gmail.com',
+        'Rob': 'rob@gmail.com', 'Wes': np.nan}
+data = pd.Series(data)
+data
+data.isnull()
+data.str.contains('gmail')
+pattern
+data.str.findall(pattern, flags=re.IGNORECASE)
+matches = data.str.match(pattern, flags=re.IGNORECASE)
+matches
+```
+
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation, Regular Expressions. 
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation, Regular Expressions, Vectorized String Functions In Pandas. 
