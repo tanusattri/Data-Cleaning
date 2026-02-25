@@ -255,4 +255,4 @@ matches
 ```
 
 ### Conclusion
-This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation, Regular Expressions, Vectorized String Functions In Pandas. 
+This file consist of Handling Missing Data, Filling in Missing Data, Removing Duplicates, Transforming Data Using a Function or Mapping, Replacing Values, Renaming Axis Indexes, Discretization and Binning, Detecting and Filtering Outliers, Permutation and Random Sampling, Dummy Variables, String Manipulation, Regular Expressions, Vectorized String Functions In Pandas which are essential part in Data Cleaning. 
