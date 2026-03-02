@@ -20,7 +20,7 @@
 ### Introduction
 This file will define and justify of each and every process in data analytics: data cleaning which is an essential and first step. 
 
-### Handling Missing Data 
+### Handling Missing Data
 ```Python
 import pandas as pd
 import numpy as np
